@@ -7,8 +7,8 @@ import { Clientes } from "@/components/blocos/clientes";
 import { CtaFinal } from "@/components/blocos/cta-final";
 import { Faq } from "@/components/blocos/faq";
 import { JsonLd } from "@/components/seo/json-ld";
+import { CtaPar } from "@/components/ui/cta-par";
 import {
-  Botao,
   Container,
   Eyebrow,
   Secao,
@@ -16,10 +16,8 @@ import {
   TituloSecao,
 } from "@/components/ui/primitivos";
 import { servicos, servicoPorSlug } from "@/content/servicos";
-import { site } from "@/content/site";
 import { faqSchema, migalhasSchema, servicoSchema } from "@/lib/schema";
 import { montarMetadata } from "@/lib/seo";
-import { linkContato, rotuloContato, temWhatsapp } from "@/lib/whatsapp";
 
 /** Qualquer slug fora da lista vira 404 estático. */
 export const dynamicParams = false;
@@ -55,11 +53,10 @@ export default async function PaginaServico({
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy-900 text-white">
-        <div aria-hidden="true" className="blueprint absolute inset-0" />
         <Container className="relative">
           <div className="py-16 md:py-20">
             <nav aria-label="Trilha de navegação">
-              <ol className="flex flex-wrap items-center gap-2 font-mono text-xs text-white/40">
+              <ol className="flex flex-wrap items-center gap-2 text-xs text-white/40">
                 <li>
                   <Link href="/" className="hover:text-amber-500">
                     Início
@@ -92,23 +89,11 @@ export default async function PaginaServico({
                   </p>
                 ))}
 
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                  <Botao
-                    href={linkContato(servico.whatsappMensagem)}
-                    variante="acento"
-                    externo
-                  >
-                    {rotuloContato("Solicitar orçamento")}
-                    <Seta />
-                  </Botao>
-                  {temWhatsapp() && (
-                    <Botao href={site.telefone.href} variante="contorno-claro">
-                      <span className="font-mono">
-                        {site.telefone.exibicao}
-                      </span>
-                    </Botao>
-                  )}
-                </div>
+                <CtaPar
+                  className="mt-9"
+                  mensagem={servico.whatsappMensagem}
+                  rotulo="Solicitar orçamento"
+                />
               </div>
 
               <figure>
@@ -172,7 +157,7 @@ export default async function PaginaServico({
       </Secao>
 
       {/* Processo */}
-      <Secao tom="navy-grid">
+      <Secao tom="navy">
         <Container>
           <Eyebrow escuro>Como vamos te ajudar</Eyebrow>
           <h2 className="mt-5 max-w-[16ch] text-balance text-3xl font-bold tracking-[-0.02em] md:text-[2.75rem] md:leading-[1.08]">

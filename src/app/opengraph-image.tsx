@@ -1,6 +1,18 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+
 import { ImageResponse } from "next/og";
 
 import { site } from "@/content/site";
+
+/**
+ * next/og não resolve caminho relativo de imagem, então o monograma
+ * entra embutido como data URI, lido do mesmo arquivo que serve de
+ * favicon.
+ */
+const monograma = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), "src/app/icon.png"),
+).toString("base64")}`;
 
 export const alt = `${site.nomeCompleto}, ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
@@ -29,26 +41,17 @@ export default function Imagem() {
           backgroundSize: "60px 60px",
         }}
       >
-        <div style={{ display: "flex", alignItems: "baseline", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
+          <img src={monograma} width={84} height={84} alt="" />
           <span
             style={{
-              fontSize: 56,
-              fontWeight: 700,
-              color: "#fff",
-              letterSpacing: "-0.04em",
-            }}
-          >
-            RF
-          </span>
-          <span
-            style={{
-              fontSize: 20,
+              fontSize: 22,
               fontWeight: 600,
               color: "#F2A81D",
               letterSpacing: "0.16em",
             }}
           >
-            ENGENHARIA
+            GRUPO RF ENGENHARIA
           </span>
         </div>
 

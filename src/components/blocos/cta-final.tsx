@@ -1,12 +1,5 @@
-import {
-  Botao,
-  Container,
-  Eyebrow,
-  Secao,
-  Seta,
-} from "@/components/ui/primitivos";
-import { site } from "@/content/site";
-import { linkContato, rotuloContato, temWhatsapp } from "@/lib/whatsapp";
+import { CtaPar } from "@/components/ui/cta-par";
+import { Container, Eyebrow, Secao } from "@/components/ui/primitivos";
 
 export function CtaFinal({
   titulo,
@@ -29,17 +22,7 @@ export function CtaFinal({
             <p className="mt-5 max-w-[52ch] text-white/60">{texto}</p>
           </div>
 
-          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-            <Botao href={linkContato(mensagem)} variante="acento" externo>
-              {rotuloContato("Falar no WhatsApp")}
-              <Seta />
-            </Botao>
-            {temWhatsapp() && (
-              <Botao href={site.telefone.href} variante="contorno-claro">
-                <span className="font-mono">{site.telefone.exibicao}</span>
-              </Botao>
-            )}
-          </div>
+          <CtaPar mensagem={mensagem} />
         </div>
       </Container>
     </Secao>

@@ -48,9 +48,9 @@ export function grafoGlobal() {
         areaServed: { "@type": "Country", name: "Brasil" },
         logo: {
           "@type": "ImageObject",
-          url: urlAbsoluta("/imagens/marca/logo-rf-engenharia.webp"),
-          width: 250,
-          height: 74,
+          url: urlAbsoluta("/imagens/marca/logo-rf-engenharia.png"),
+          width: 750,
+          height: 222,
         },
         contactPoint: {
           "@type": "ContactPoint",

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+import { IconeTelefone, IconeWhatsapp } from "@/components/ui/icones";
+
 type Item = { label: string; href: string };
 
 /**
@@ -14,13 +16,11 @@ export function MenuMobile({
   telefoneHref,
   telefoneExibicao,
   contatoHref,
-  contatoRotulo,
 }: {
   itens: Item[];
   telefoneHref: string;
   telefoneExibicao: string;
   contatoHref: string;
-  contatoRotulo: string;
 }) {
   const [aberto, setAberto] = useState(false);
 
@@ -88,18 +88,24 @@ export function MenuMobile({
             </Link>
           ))}
 
-          <a
-            href={contatoHref}
-            className="mt-8 inline-flex items-center justify-center rounded-sm bg-navy-900 px-6 py-4 text-sm font-semibold text-white"
-          >
-            {contatoRotulo}
-          </a>
-          <a
-            href={telefoneHref}
-            className="mt-3 inline-flex items-center justify-center rounded-sm border border-steel-200 px-6 py-4 font-mono text-sm font-medium text-navy-900"
-          >
-            {telefoneExibicao}
-          </a>
+          <div className="mt-8 flex flex-col gap-3 min-[400px]:flex-row">
+            <a
+              href={contatoHref}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm bg-whatsapp px-5 py-4 text-sm font-semibold text-white"
+            >
+              <IconeWhatsapp />
+              WhatsApp
+            </a>
+            <a
+              href={telefoneHref}
+              className="inline-flex flex-1 items-center justify-center gap-2 rounded-sm border border-steel-200 px-5 py-4 font-mono text-sm font-medium text-navy-900"
+            >
+              <IconeTelefone />
+              {telefoneExibicao}
+            </a>
+          </div>
         </div>
       )}
     </div>

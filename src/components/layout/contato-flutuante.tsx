@@ -1,43 +1,42 @@
+import { IconeTelefone, IconeWhatsapp } from "@/components/ui/icones";
 import { site } from "@/content/site";
-import { linkContato, temWhatsapp } from "@/lib/whatsapp";
+import { linkWhatsapp, temWhatsapp } from "@/lib/whatsapp";
 
 /**
- * Botão flutuante de contato.
+ * Par flutuante de contato: WhatsApp como principal e ligação ao lado.
  *
- * Server component: é só um <a> fixo, não precisa de JS.
- * Quando não há WhatsApp válido configurado, vira botão de ligação em
- * vez de link quebrado, e troca o verde pelo navy da marca (o verde é
- * cor do WhatsApp, não nossa).
+ * Server component, é só um par de âncoras fixas. O círculo é a única
+ * exceção ao radius contido do sistema.
  */
 export function ContatoFlutuante() {
   const whatsapp = temWhatsapp();
-  const href = linkContato("Olá! Gostaria de solicitar um orçamento.");
 
   return (
-    <a
-      href={href}
-      {...(whatsapp ? { target: "_blank", rel: "noreferrer" } : {})}
-      aria-label={
-        whatsapp
-          ? "Falar com a RF Engenharia pelo WhatsApp"
-          : `Ligar para a RF Engenharia no ${site.telefone.exibicao}`
-      }
-      className={`fixed right-5 bottom-5 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lift-strong transition-transform duration-200 hover:scale-105 ${
-        whatsapp
-          ? "bg-whatsapp text-white"
-          : "bg-navy-900 text-white"
-      }`}
+    <div
+      className="fixed right-4 bottom-4 z-50 flex items-center gap-2.5 md:right-5 md:bottom-5 md:gap-3"
+      // Respeita a barra de gestos do iOS, senão o par encosta na borda
+      // e cobre o conteúdo do fim da página.
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
-      {whatsapp ? (
-        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-7" fill="currentColor">
-          <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.48-1.75-1.65-2.05-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.07-.13-.27-.2-.57-.35Z" />
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01c-1.48 0-2.94-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.36c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.69 8.21-8.21 8.21Z" />
-        </svg>
-      ) : (
-        <svg viewBox="0 0 24 24" aria-hidden="true" className="h-6 w-6" fill="currentColor">
-          <path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .7-.2 1l-2.2 2.2Z" />
-        </svg>
+      <a
+        href={site.telefone.href}
+        aria-label={`Ligar para a RF Engenharia no ${site.telefone.exibicao}`}
+        className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-navy-900 text-white shadow-lift transition-transform duration-200 hover:scale-105 md:h-12 md:w-12"
+      >
+        <IconeTelefone className="h-5 w-5" />
+      </a>
+
+      {whatsapp && (
+        <a
+          href={linkWhatsapp("Olá! Gostaria de solicitar um orçamento.")}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Falar com a RF Engenharia pelo WhatsApp"
+          className="flex h-13 w-13 items-center justify-center rounded-full bg-whatsapp text-white shadow-lift-strong transition-transform duration-200 hover:scale-105 md:h-14 md:w-14"
+        >
+          <IconeWhatsapp className="h-6 w-6 md:h-7 md:w-7" />
+        </a>
       )}
-    </a>
+    </div>
   );
 }

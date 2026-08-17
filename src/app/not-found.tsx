@@ -11,7 +11,6 @@ import { servicos } from "@/content/servicos";
 export default function NaoEncontrado() {
   return (
     <section className="relative overflow-hidden bg-navy-900 text-white">
-      <div aria-hidden="true" className="blueprint absolute inset-0" />
       <Container className="relative">
         <div className="max-w-2xl py-24 md:py-32">
           <Eyebrow escuro>Erro 404</Eyebrow>

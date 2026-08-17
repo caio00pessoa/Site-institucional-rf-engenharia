@@ -42,7 +42,7 @@ export function GradeServicos({
         </div>
 
         <ul className="mt-14 grid gap-px border border-steel-200 bg-steel-200 sm:grid-cols-2 lg:grid-cols-4">
-          {servicos.map((servico, indice) => (
+          {servicos.map((servico) => (
             <li key={servico.slug} className="bg-white">
               <Link
                 href={`/servicos/${servico.slug}`}
@@ -56,12 +56,6 @@ export function GradeServicos({
                     sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-[1.04]"
                   />
-                  <span
-                    aria-hidden="true"
-                    className="absolute top-0 left-0 bg-navy-900 px-2.5 py-1.5 font-mono text-[0.625rem] font-semibold text-amber-500"
-                  >
-                    {String(indice + 1).padStart(2, "0")}
-                  </span>
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">

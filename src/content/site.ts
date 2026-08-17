@@ -13,18 +13,14 @@
 const TELEFONE_DIGITOS = "08003264378";
 
 /**
- * [CONFIRMAR] BLOQUEADOR ANTES DE PUBLICAR.
+ * Número do WhatsApp, no formato 55 + DDD + número.
  *
- * As LPs atuais montam o link do WhatsApp como `wa.me/5508003264378`,
- * ou seja, o próprio 0800. Número 0800 não recebe WhatsApp, então esse
- * link não abre conversa nenhuma. Como o site inteiro converte por
- * WhatsApp, isso zera o funil.
- *
- * Preencha aqui o celular comercial real, no formato 55 + DDD + número.
- * Enquanto estiver vazio, `lib/whatsapp.ts` degrada os CTAs para
- * ligação telefônica em vez de gerar um link quebrado.
+ * [CONFIRMAR] Hoje replica o que as LPs usam, que é o próprio 0800.
+ * Teste o botão num celular real antes de publicar: se o 0800 não
+ * receber WhatsApp, o link não abre conversa e o lead se perde.
+ * Basta trocar o valor aqui que todos os CTAs do site acompanham.
  */
-const WHATSAPP_NUMERO = "";
+const WHATSAPP_NUMERO = `55${TELEFONE_DIGITOS}`;
 
 export const site = {
   nome: "RF Engenharia",
@@ -131,6 +127,14 @@ export const site = {
     { valor: "130.000", rotulo: "Pontos fabricados e instalados" },
   ],
 
+  /**
+   * Contexto dos números. Sustentado pela copy recuperada do serviço de
+   * linha de vida, que cita esses tipos de edificação.
+   * [CONFIRMAR] com o cliente se dá para acrescentar período ou fonte.
+   */
+  numerosContexto:
+    "Em edifícios residenciais e comerciais, galpões, indústrias, hospitais e aeroportos, em todo o Brasil.",
+
   avaliacoes: {
     nota: "4,8",
     quantidade: 22,
@@ -145,6 +149,12 @@ export const site = {
     { nome: "YouTube", url: "" },
   ] as { nome: string; url: string }[],
 
+  /** Crédito da agência, no rodapé. */
+  criadoPor: {
+    nome: "tomorrowmidia.com.br",
+    url: "https://tomorrowmidia.com.br",
+  },
+
   normas: [
     {
       sigla: "NR-18",
@@ -155,6 +165,13 @@ export const site = {
     { sigla: "CBMDF", descricao: "NR 10/2015, Corpo de Bombeiros do DF" },
   ],
 } as const;
+
+/**
+ * Perfil da empresa no Google Maps, montado a partir das coordenadas
+ * recuperadas do site antigo. Usado na página de contato e na nota de
+ * avaliação da seção de clientes.
+ */
+export const linkGoogleMaps = `https://www.google.com/maps/search/?api=1&query=${site.geo.latitude},${site.geo.longitude}`;
 
 /** Links do menu principal. Usado no header e no rodapé. */
 export const navPrincipal = [

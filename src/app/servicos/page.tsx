@@ -25,10 +25,10 @@ export const metadata: Metadata = montarMetadata({
 export default function PaginaServicos() {
   return (
     <>
-      <Secao tom="navy-grid" className="pt-16 pb-20 md:pt-20 md:pb-28">
+      <Secao tom="navy" className="pt-16 pb-20 md:pt-20 md:pb-28">
         <Container>
           <nav aria-label="Trilha de navegação">
-            <ol className="flex items-center gap-2 font-mono text-xs text-white/40">
+            <ol className="flex items-center gap-2 text-xs text-white/40">
               <li>
                 <Link href="/" className="hover:text-amber-500">
                   Início
@@ -56,7 +56,7 @@ export default function PaginaServicos() {
       <Secao tom="tela">
         <Container>
           <ul className="grid gap-6">
-            {servicos.map((servico, indice) => (
+            {servicos.map((servico) => (
               <li key={servico.slug}>
                 <Link
                   href={`/servicos/${servico.slug}`}
@@ -73,10 +73,7 @@ export default function PaginaServicos() {
                   </div>
 
                   <div className="flex flex-col justify-center">
-                    <span className="font-mono text-xs text-amber-600">
-                      {String(indice + 1).padStart(2, "0")}
-                    </span>
-                    <h2 className="mt-3 text-balance text-2xl font-bold tracking-[-0.02em] text-navy-900 md:text-3xl">
+                    <h2 className="text-balance text-2xl font-bold tracking-[-0.02em] text-navy-900 md:text-3xl">
                       {servico.nome}
                     </h2>
                     <p className="mt-4 max-w-[62ch] leading-relaxed text-steel-600">

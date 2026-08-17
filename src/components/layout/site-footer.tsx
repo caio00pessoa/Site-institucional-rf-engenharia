@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { navLegal, navPrincipal, site } from "@/content/site";
@@ -12,13 +13,16 @@ export function SiteFooter() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Marca e grupo */}
           <div>
-            <div className="flex items-baseline gap-2.5">
-              <span className="text-2xl leading-none font-bold tracking-[-0.04em]">
-                RF
-              </span>
-              <span className="label-tech text-amber-500">Engenharia</span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
+            {/* Versão monocromática branca, gerada para fundo escuro. */}
+            <Image
+              src="/imagens/marca/logo-rf-engenharia-branco.png"
+              alt={`${site.nomeCompleto}, ${site.tagline}`}
+              width={750}
+              height={222}
+              sizes="180px"
+              className="h-auto w-[180px]"
+            />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
               {site.tagline}
             </p>
 
@@ -125,13 +129,27 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 font-mono text-xs text-white/40 md:flex-row md:items-center md:justify-between">
+        <div className="mt-16 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
           <p>
             {site.razaoSocial}, CNPJ {site.cnpj}
           </p>
-          <p>
-            © {new Date().getFullYear()} {site.nomeCompleto}
-          </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
+            <p>
+              © {new Date().getFullYear()} {site.nomeCompleto}
+            </p>
+            <p>
+              Criado por{" "}
+              <a
+                href={site.criadoPor.url}
+                target="_blank"
+                rel="noreferrer"
+                className="text-white/60 underline decoration-white/20 underline-offset-4 transition-colors hover:text-amber-500 hover:decoration-amber-500"
+              >
+                {site.criadoPor.nome}
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

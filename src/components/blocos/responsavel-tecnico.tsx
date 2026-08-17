@@ -45,17 +45,15 @@ export function ResponsavelTecnico() {
           <div>
             <p className="label-tech text-steel-400">Formação</p>
             <ul className="mt-6 border-t border-steel-200">
-              {rt.formacao.map((item, indice) => (
+              {rt.formacao.map((item) => (
                 <li
                   key={item}
-                  className="flex items-baseline gap-5 border-b border-steel-200 py-4"
+                  className="flex items-baseline gap-4 border-b border-steel-200 py-4"
                 >
                   <span
                     aria-hidden="true"
-                    className="font-mono text-xs text-amber-600 tabular-nums"
-                  >
-                    {String(indice + 1).padStart(2, "0")}
-                  </span>
+                    className="mt-2 h-1.5 w-1.5 shrink-0 bg-amber-500"
+                  />
                   <span className="text-[0.9375rem] text-steel-700">
                     {item}
                   </span>

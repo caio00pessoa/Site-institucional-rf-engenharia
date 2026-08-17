@@ -28,10 +28,10 @@ export const metadata: Metadata = montarMetadata({
 export default function PaginaSobre() {
   return (
     <>
-      <Secao tom="navy-grid" className="pt-16 pb-20 md:pt-20 md:pb-28">
+      <Secao tom="navy" className="pt-16 pb-20 md:pt-20 md:pb-28">
         <Container>
           <nav aria-label="Trilha de navegação">
-            <ol className="flex items-center gap-2 font-mono text-xs text-white/40">
+            <ol className="flex items-center gap-2 text-xs text-white/40">
               <li>
                 <Link href="/" className="hover:text-amber-500">
                   Início
@@ -73,12 +73,13 @@ export default function PaginaSobre() {
           </div>
 
           <ul className="mt-14 grid gap-px border border-steel-200 bg-steel-200 md:grid-cols-3">
-            {site.grupo.map((empresa, indice) => (
+            {site.grupo.map((empresa) => (
               <li key={empresa.nome} className="bg-white p-8">
-                <span className="font-mono text-xs font-semibold text-amber-600">
-                  {String(indice + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-balance text-lg leading-snug font-bold text-navy-900">
+                <span
+                  aria-hidden="true"
+                  className="block h-1 w-10 bg-amber-500"
+                />
+                <h3 className="mt-5 text-balance text-lg leading-snug font-bold text-navy-900">
                   {empresa.nome}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-steel-600">

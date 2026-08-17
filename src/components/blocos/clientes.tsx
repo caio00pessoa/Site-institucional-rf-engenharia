@@ -7,7 +7,7 @@ import {
   TituloSecao,
 } from "@/components/ui/primitivos";
 import { clientes } from "@/content/clientes";
-import { site } from "@/content/site";
+import { linkGoogleMaps, site } from "@/content/site";
 
 /**
  * Grade de logos. O rótulo é sempre "clientes atendidos": evitar
@@ -27,9 +27,17 @@ export function Clientes({ limite }: { limite?: number }) {
               Clientes que já compram conosco
             </TituloSecao>
           </div>
-          <p className="font-mono text-sm text-steel-600">
-            {site.avaliacoes.texto}
-          </p>
+          <a
+            href={linkGoogleMaps}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-steel-600 underline decoration-steel-200 underline-offset-4 transition-colors hover:text-navy-900 hover:decoration-navy-900"
+          >
+            <span className="font-mono font-medium text-navy-900">
+              {site.avaliacoes.nota}
+            </span>
+            no Google, com {site.avaliacoes.quantidade} avaliações
+          </a>
         </div>
 
         <ul className="mt-14 grid grid-cols-2 gap-px border border-steel-200 bg-steel-200 sm:grid-cols-3 lg:grid-cols-6">

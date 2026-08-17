@@ -6,10 +6,10 @@ import type { Documento } from "@/content/legal";
 export function DocumentoLegal({ documento }: { documento: Documento }) {
   return (
     <>
-      <Secao tom="navy-grid" className="pt-16 pb-16 md:pt-20 md:pb-20">
+      <Secao tom="navy" className="pt-16 pb-16 md:pt-20 md:pb-20">
         <Container>
           <nav aria-label="Trilha de navegação">
-            <ol className="flex items-center gap-2 font-mono text-xs text-white/40">
+            <ol className="flex items-center gap-2 text-xs text-white/40">
               <li>
                 <Link href="/" className="hover:text-amber-500">
                   Início

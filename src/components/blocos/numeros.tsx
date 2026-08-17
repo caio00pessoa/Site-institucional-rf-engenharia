@@ -12,15 +12,10 @@ export function Numeros() {
         <Eyebrow escuro>RF em números</Eyebrow>
 
         <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
-          {site.numeros.map((item, indice) => (
-            <div
-              key={item.rotulo}
-              // flex-col + mt-auto mantém os índices alinhados na base,
-              // mesmo com rótulos de alturas diferentes.
-              className="flex h-full flex-col border-t border-white/15 pt-6"
-            >
+          {site.numeros.map((item) => (
+            <div key={item.rotulo} className="border-t border-white/15 pt-6">
               <dt className="sr-only">{item.rotulo}</dt>
-              <dd className="flex-1">
+              <dd>
                 <span className="block font-mono text-4xl font-medium tracking-[-0.03em] text-amber-500 tabular-nums md:text-6xl">
                   {item.valor}
                 </span>
@@ -28,15 +23,13 @@ export function Numeros() {
                   {item.rotulo}
                 </span>
               </dd>
-              <span
-                aria-hidden="true"
-                className="mt-8 block font-mono text-[0.625rem] text-white/25"
-              >
-                {String(indice + 1).padStart(2, "0")}
-              </span>
             </div>
           ))}
         </dl>
+
+        <p className="mt-12 max-w-[54ch] text-sm leading-relaxed text-white/45">
+          {site.numerosContexto}
+        </p>
       </Container>
     </Secao>
   );

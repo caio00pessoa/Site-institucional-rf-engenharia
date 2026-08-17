@@ -2,18 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/seo/json-ld";
+import { CtaPar } from "@/components/ui/cta-par";
 import {
-  Botao,
   Container,
   Eyebrow,
   Secao,
   Seta,
   TituloSecao,
 } from "@/components/ui/primitivos";
-import { site } from "@/content/site";
+import { linkGoogleMaps, site } from "@/content/site";
 import { migalhasSchema } from "@/lib/schema";
 import { montarMetadata } from "@/lib/seo";
-import { linkContato, rotuloContato, temWhatsapp } from "@/lib/whatsapp";
 
 export const metadata: Metadata = montarMetadata({
   titulo: "Contato",
@@ -21,15 +20,13 @@ export const metadata: Metadata = montarMetadata({
   caminho: "/contato",
 });
 
-const linkMapa = `https://www.google.com/maps/search/?api=1&query=${site.geo.latitude},${site.geo.longitude}`;
-
 export default function PaginaContato() {
   return (
     <>
-      <Secao tom="navy-grid" className="pt-16 pb-20 md:pt-20 md:pb-28">
+      <Secao tom="navy" className="pt-16 pb-20 md:pt-20 md:pb-28">
         <Container>
           <nav aria-label="Trilha de navegação">
-            <ol className="flex items-center gap-2 font-mono text-xs text-white/40">
+            <ol className="flex items-center gap-2 text-xs text-white/40">
               <li>
                 <Link href="/" className="hover:text-amber-500">
                   Início
@@ -52,21 +49,7 @@ export default function PaginaContato() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <Botao
-                href={linkContato("Olá! Gostaria de solicitar um orçamento.")}
-                variante="acento"
-                externo
-              >
-                {rotuloContato("Falar no WhatsApp")}
-                <Seta />
-              </Botao>
-              {temWhatsapp() && (
-                <Botao href={site.telefone.href} variante="contorno-claro">
-                  <span className="font-mono">{site.telefone.exibicao}</span>
-                </Botao>
-              )}
-            </div>
+            <CtaPar mensagem="Olá! Gostaria de solicitar um orçamento." />
           </div>
         </Container>
       </Secao>
@@ -114,7 +97,7 @@ export default function PaginaContato() {
                     {site.endereco.completo}
                   </address>
                   <a
-                    href={linkMapa}
+                    href={linkGoogleMaps}
                     target="_blank"
                     rel="noreferrer"
                     className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-indigo-500 hover:text-navy-900"

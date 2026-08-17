@@ -101,9 +101,17 @@ export function TituloSecao({
 /* Botões                                                              */
 /* ------------------------------------------------------------------ */
 
-type Variante = "primaria" | "acento" | "contorno" | "contorno-claro";
+type Variante =
+  | "whatsapp"
+  | "primaria"
+  | "acento"
+  | "contorno"
+  | "contorno-claro";
 
 const variantes: Record<Variante, string> = {
+  // Verde do WhatsApp. Uso exclusivo no CTA de conversão.
+  whatsapp:
+    "bg-whatsapp text-white hover:bg-whatsapp-dark focus-visible:bg-whatsapp-dark",
   primaria:
     "bg-navy-900 text-white hover:bg-navy-700 focus-visible:bg-navy-700",
   acento:
