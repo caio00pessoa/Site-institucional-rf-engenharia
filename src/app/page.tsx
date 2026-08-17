@@ -65,34 +65,12 @@ export default function Home() {
                   sizes="(min-width: 1024px) 27rem, 100vw"
                   className="object-cover"
                 />
-
-                {/*
-                  Detalhe do produto, encaixado no canto da foto de obra:
-                  a foto dá o contexto, o olhal dá a prova de fabricação.
-                */}
-                <div className="absolute bottom-3 left-3 w-24 sm:w-28">
-                  <div className="relative aspect-square overflow-hidden rounded-xs border border-white/30 bg-navy-900 shadow-lift-strong">
-                    <Image
-                      src={home.hero.detalhe.src}
-                      alt={home.hero.detalhe.alt}
-                      fill
-                      loading="eager"
-                      sizes="112px"
-                      className="object-cover"
-                    />
-                  </div>
-                  {/* Chip sólido: o texto cai sobre a foto e sem fundo
-                      próprio ele some no meio da imagem. */}
-                  <p className="mt-1.5 inline-block rounded-xs bg-navy-900/90 px-1.5 py-1 text-[0.625rem] leading-none font-medium text-white">
-                    {home.hero.detalhe.legenda}
-                  </p>
-                </div>
               </div>
 
               <figcaption className="mt-4 flex items-center justify-between gap-4 border-t border-white/15 pt-4 text-xs text-white/50">
                 <span>{home.hero.imagem.legenda}</span>
                 <span className="shrink-0 font-mono text-amber-500">
-                  {home.hero.detalhe.norma}
+                  {home.hero.imagem.norma}
                 </span>
               </figcaption>
             </figure>

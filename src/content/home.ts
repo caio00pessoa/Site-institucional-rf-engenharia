@@ -17,13 +17,6 @@ export const home = {
       legenda: "Equipe em obra, sistema de linha de vida",
       norma: "NR-35",
     },
-    /* Detalhe do produto que a RF fabrica, como prova de fabricação própria. */
-    detalhe: {
-      src: "/imagens/servicos/olhal-ancoragem.webp",
-      alt: "Olhal de ancoragem em aço inox gravado RF Engenharia, com lacre numerado de inspeção",
-      legenda: "Olhal que fabricamos",
-      norma: "NBR 16325-1",
-    },
     whatsappMensagem: "Olá! Gostaria de solicitar um orçamento.",
   },
 
