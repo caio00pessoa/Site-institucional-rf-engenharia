@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { IconeTelefone, IconeWhatsapp } from "@/components/ui/icones";
 
@@ -70,7 +71,12 @@ export function MenuMobile({
         </svg>
       </button>
 
-      {aberto && (
+      {/*
+        Portal para o body: o header usa backdrop-blur, que cria um
+        containing block para descendentes "fixed" e prendia o painel
+        dentro dos 72px do header em vez da viewport inteira.
+      */}
+      {aberto && createPortal(
         <div
           id="menu-mobile"
           className="fixed inset-x-0 top-18 bottom-0 z-40 flex flex-col gap-1 overflow-y-auto border-t border-steel-200 bg-white px-5 py-8"
@@ -106,7 +112,8 @@ export function MenuMobile({
               {telefoneExibicao}
             </a>
           </div>
-        </div>
+        </div>,
+        document.body,
       )}
     </div>
   );
