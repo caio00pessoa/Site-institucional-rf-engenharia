@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+/*
+  DESIGN TOKENS - RF Engenharia
+  ------------------------------------------------------------------
+  Princípio: documento de engenharia, não folheto de construtora.
+  Navy e índigo saem do logo. O âmbar sai do cinto paraquedista que a
+  equipe usa nas fotos reais de obra: é a cor da segurança no campo
+  deles, e é o único ponto quente da paleta.
+  ------------------------------------------------------------------
+*/
+@theme {
+  /* Marca */
+  --color-navy-900: #080a3a;
+  --color-navy-800: #0a0c47;
+  --color-navy-700: #0d0f55;
+  --color-navy-600: #1a1d69;
+  --color-indigo-500: #2d3092;
+  --color-indigo-400: #4a4db0;
+  --color-indigo-200: #b6b8e0;
+  --color-indigo-50: #eef0fb;
+
+  /* Acento de segurança */
+  --color-amber-500: #f2a81d;
+  --color-amber-600: #c4820a;
+  --color-amber-100: #fdf0d4;
+
+  /* Conversão. Uso exclusivo no CTA de WhatsApp. */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1da851;
+
+  /* Neutros de aço e concreto */
+  --color-ink: #14171f;
+  --color-steel-700: #3b4453;
+  --color-steel-600: #5a6472;
+  --color-steel-400: #9aa3b0;
+  --color-steel-200: #e3e6eb;
+  --color-steel-100: #eef0f3;
+  --color-steel-50: #f6f7f9;
+
+  /*
+    Tipografia. Archivo é uma grotesca industrial de terminações retas,
+    desenhada para alto contraste em título. IBM Plex Mono carrega os
+    dados: labels, specs e números, do jeito de uma folha técnica.
+    Ambas entram por next/font/google, que faz self-host no build.
+  */
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Radius contido. Pill só no botão flutuante. */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Sombra só em hover */
+  --shadow-lift: 0 6px 20px rgba(8, 10, 58, 0.08);
+  --shadow-lift-strong: 0 12px 36px rgba(8, 10, 58, 0.14);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    /* trava o efeito elástico horizontal do iOS */
+    overflow-x: clip;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    background-color: var(--color-steel-50);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-navy-700);
+    color: #fff;
+  }
+
+  /* Foco visível e consistente em todo o site */
+  :focus-visible {
+    outline: 2px solid var(--color-amber-500);
+    outline-offset: 3px;
+    border-radius: var(--radius-xs);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Largura de leitura padrão do site */
+  .container-rf {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-rf {
+      padding-inline: 2rem;
+    }
+  }
+
+  /*
+    Malha de desenho técnico. Usada como textura de fundo nas seções
+    escuras no lugar de uma foto: as fotos que sobraram do site antigo
+    têm no máximo 500px de largura e não aguentam área full-bleed.
+  */
+  .blueprint {
+    background-image:
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.05) 1px,
+        transparent 1px
+      );
+    background-size: 48px 48px;
+  }
+
+  .blueprint-light {
+    background-image:
+      linear-gradient(to right, rgba(13, 15, 85, 0.055) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(13, 15, 85, 0.055) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Label técnico em mono, caixa alta espaçada */
+  .label-tech {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
