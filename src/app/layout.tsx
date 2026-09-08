@@ -53,6 +53,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt-BR"
       className={`${archivo.variable} ${plexMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      // extensões de navegador (corretor gramatical, por exemplo) injetam
+      // atributos no <html> antes do React hidratar
+      suppressHydrationWarning
     >
       <head>
         <Script id="gtm" strategy="afterInteractive">

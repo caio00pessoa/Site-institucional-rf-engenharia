@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { navLegal, navPrincipal, site } from "@/content/site";
+import { navLegal, navPrincipal, navSecundaria, site } from "@/content/site";
 import { servicos } from "@/content/servicos";
 
 export function SiteFooter() {
@@ -39,6 +39,16 @@ export function SiteFooter() {
             <p className="label-tech text-white/40">Institucional</p>
             <ul className="mt-4 space-y-3 text-sm">
               {navPrincipal.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-white/70 transition-colors hover:text-amber-500"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              {navSecundaria.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

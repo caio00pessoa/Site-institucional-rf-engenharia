@@ -14,7 +14,7 @@ export const sobre = {
     eyebrow: "Estrutura",
     titulo: "Onde as coisas são feitas",
     texto:
-      "Galpão, estoque, setor de manutenção e oficina de inspeção próprios. Nada do que é crítico depende de terceiro.",
+      "Galpão, estoque, setor de manutenção e oficina de inspeção na mesma estrutura. Nada do que é crítico depende de terceiro.",
     imagens: [
       {
         src: "/imagens/estrutura/unidade-rf-fachada.webp",

@@ -1,9 +1,16 @@
 /**
  * SERVIÇOS - conteúdo das rotas /servicos e /servicos/[slug].
  * ------------------------------------------------------------------
- * A copy dos quatro serviços foi recuperada do site antigo. O detalhe
- * de Ancoragem Predial (processo, specs, aplicações, FAQ) veio do
- * print de página inteira e é o mais completo dos quatro.
+ * A copy de ancoragem, linha de vida, projetos de segurança e
+ * construção metálica foi recuperada do site antigo. O detalhe de
+ * Ancoragem Predial (processo, specs, aplicações, FAQ) veio do print
+ * de página inteira e é o mais completo de todos.
+ *
+ * Locação de balancim e inspeção e manutenção entraram depois: a copy
+ * veio das LPs em Astro, que já estão publicadas e aprovadas pelo
+ * cliente. De propósito ficaram de fora de balancim o frete, que é
+ * operação terceirizada, e o material da estrutura, porque a frota não
+ * é toda do mesmo material.
  *
  * Respostas de FAQ marcadas [CONFIRMAR] foram redigidas a partir das
  * especificações recuperadas, mas o texto original se perdeu junto
@@ -65,7 +72,7 @@ export const servicos: Servico[] = [
     heroTitulo: "Instalação de Ancoragem Predial",
     heroTexto: [
       "O sistema de ancoragem predial é utilizado geralmente na cobertura de edifícios como um ponto seguro para fixação de equipamentos para fachadas (balancins, cadeirinhas, etc), bem como para o SPIQ (Sistema de Proteção Individual contra Quedas).",
-      "É o dispositivo ideal para realizar trabalho em altura com a máxima segurança. A RF Engenharia elabora o projeto, fabricação, fornecimento e instalação do sistema de ancoragem.",
+      "Somos fabricantes e distribuidores de ancoragem predial para todo o Brasil. Elaboramos o projeto, fornecemos o material, executamos a instalação com equipe própria, realizamos todos os testes e emitimos databook completo com ART e todos os certificados.",
     ],
     imagem: {
       src: "/imagens/servicos/ancoragem-predial.jpg",
@@ -318,6 +325,219 @@ export const servicos: Servico[] = [
     ],
     whatsappMensagem:
       "Olá! Gostaria de um orçamento de sistema de linha de vida.",
+  },
+
+  {
+    slug: "locacao-de-balancim",
+    nome: "Locação de Balancim Elétrico",
+    nomeCurto: "Locação de Balancim",
+    tituloSeo: "Locação de Balancim Elétrico com Projeto, Montagem e ART",
+    descricaoSeo:
+      "Locação de balancim elétrico, o andaime suspenso, com equipamento 100% revisado, montagem por equipe própria, projeto de montagem e ART registrada no CREA. Atende NR-18 e NR-35.",
+    resumo:
+      "Andaime suspenso para serviço de fachada, com equipamento revisado, montagem própria e documentação completa.",
+    heroTitulo: "Locação de Balancim Elétrico",
+    heroTexto: [
+      "Sua obra exige segurança e nós entregamos o problema resolvido. Solução completa de ponta a ponta: desde o projeto técnico com emissão de ART, até a locação do equipamento 100% revisado e a montagem especializada.",
+      "Você precisa de balancim na sua obra, mas o que garante o seu prazo e a sua segurança é quem está por trás do equipamento. A RF entrega a solução completa do projeto à desmontagem, sem surpresas no meio do caminho.",
+    ],
+    imagem: {
+      src: "/imagens/servicos/locacao-de-balancim.webp",
+      alt: "Trabalhador de capacete operando balancim elétrico suspenso na fachada de um edifício em obra",
+      width: 768,
+      height: 512,
+    },
+    beneficios: [
+      "Balancins motorizados de alta performance, 100% revisados e testados antes de saírem do pátio",
+      "Montagem, manutenção preventiva, suporte técnico e desmontagem por equipe interna certificada",
+      "Projeto de montagem, laudo técnico, manuais do equipamento e certificados de inspeção antes de a obra começar",
+      "ART emitida e registrada por engenheiro responsável no CREA",
+      "Capacitação e instrução dos operadores para a operação segura do equipamento no canteiro",
+    ],
+    aplicacoes: [
+      {
+        titulo: "Serviços de fachada",
+        texto:
+          "Acesso à fachada ao longo de toda a altura do edifício, com plataforma suspensa por cabos a partir da cobertura.",
+      },
+      {
+        titulo: "Pintura e reboco",
+        texto:
+          "Frentes de revestimento e pintura externa que exigem deslocamento vertical contínuo da equipe.",
+      },
+      {
+        titulo: "Limpeza técnica e vidros",
+        texto:
+          "Limpeza de fachada, vidros e esquadrias em edifícios comerciais e residenciais em operação.",
+      },
+      {
+        titulo: "Manutenção predial",
+        texto:
+          "Reparos, instalação de equipamentos de ar condicionado e manutenção periódica da envoltória do prédio.",
+      },
+    ],
+    processo: [
+      {
+        titulo: "Projeto e ART",
+        texto:
+          "Elaboramos o projeto de montagem do equipamento na edificação e emitimos a Anotação de Responsabilidade Técnica no CREA.",
+      },
+      {
+        titulo: "Revisão do equipamento",
+        texto:
+          "O balancim passa por revisão e teste no nosso setor de manutenção antes de sair do pátio para a obra.",
+      },
+      {
+        titulo: "Montagem",
+        texto:
+          "Equipe própria de montadores certificados executa a montagem no canteiro, sem terceirizar a etapa crítica.",
+      },
+      {
+        titulo: "Capacitação",
+        texto:
+          "Capacitamos os operadores que vão usar o equipamento no canteiro.",
+      },
+      {
+        titulo: "Suporte durante a locação",
+        texto:
+          "Manutenção preventiva e suporte técnico enquanto o equipamento estiver na obra.",
+      },
+      {
+        titulo: "Desmontagem",
+        texto:
+          "A mesma equipe que montou faz a desmontagem e a retirada do equipamento ao fim do serviço.",
+      },
+    ],
+    specs: [
+      { rotulo: "Capacidade de carga", valor: "500 kg" },
+      { rotulo: "Limite de pavimentos", valor: "Até 30 andares" },
+      { rotulo: "Sistema de tração", valor: "Eletromecânico trifásico" },
+      { rotulo: "Velocidade de subida", valor: "9 metros por minuto" },
+      { rotulo: "Sistema antiqueda", valor: "Block-Stop" },
+      { rotulo: "Nivelamento", valor: "Sensores de nivelamento da plataforma" },
+      { rotulo: "Sinalização", valor: "Alarme sonoro de operação" },
+      { rotulo: "Quadro elétrico", valor: "Blindado, grau de proteção IP65" },
+    ],
+    normas: ["NR-18", "NR-35"],
+    faq: [
+      {
+        pergunta: "A locação inclui a ART e o projeto?",
+        resposta:
+          "Sim. Todas as nossas locações acompanham a Anotação de Responsabilidade Técnica de instalação e o projeto de montagem detalhado, atendendo plenamente à NR-18.",
+      },
+      {
+        pergunta: "A RF fornece o treinamento NR-35?",
+        resposta:
+          "Sim. Temos centro de treinamento próprio e também podemos realizar a capacitação in loco na sua obra, certificando os operadores conforme as exigências legais.",
+      },
+      {
+        pergunta: "Qual o tempo mínimo de locação?",
+        resposta:
+          "Trabalhamos com contratos flexíveis, com períodos mínimos de 30 dias, adequando-se ao cronograma da sua fachada ou manutenção.",
+      },
+      {
+        pergunta: "Vocês realizam a montagem e a desmontagem?",
+        resposta:
+          "Sim. Nossa equipe própria de montadores certificados realiza toda a logística, montagem e desmontagem do equipamento com segurança e rapidez.",
+      },
+    ],
+    whatsappMensagem:
+      "Olá! Gostaria de um orçamento de locação de balancim elétrico.",
+  },
+
+  {
+    slug: "inspecao-e-manutencao",
+    nome: "Inspeção e Manutenção de Sistemas de Proteção",
+    nomeCurto: "Inspeção e Manutenção",
+    tituloSeo: "Inspeção e Manutenção de Ancoragem e Linha de Vida",
+    descricaoSeo:
+      "Inspeção periódica de pontos de ancoragem, linha de vida e equipamentos de acesso, com oficina própria, ensaio dos componentes, laudo técnico e ART no CREA.",
+    resumo:
+      "Inspeção periódica do sistema instalado, com ensaio dos componentes, laudo técnico e ART.",
+    heroTitulo: "Inspeção e Manutenção de Sistemas",
+    heroTexto: [
+      "O sistema instalado continua exigindo acompanhamento depois da entrega. As normas de trabalho em altura pedem inspeção periódica por profissional habilitado, e a periodicidade de cada instalação é definida no laudo técnico.",
+      "A oficina de inspeção fica dentro da nossa estrutura, com bancadas dedicadas ao ensaio dos componentes. O equipamento só é liberado para uso depois de passar por lá.",
+    ],
+    imagem: {
+      src: "/imagens/estrutura/oficina-inspecao.webp",
+      alt: "Oficina de inspeção de equipamentos da RF Engenharia, com bancadas de ensaio de componentes",
+      width: 1200,
+      height: 800,
+    },
+    beneficios: [
+      "Oficina de inspeção própria, com bancadas dedicadas ao ensaio dos componentes",
+      "Setor de manutenção próprio, onde guinchos e motores são revisados e testados",
+      "Equipe técnica própria, sem terceirização da etapa crítica",
+      "Laudo técnico da inspeção, com registro do que foi verificado",
+      "ART registrada no CREA",
+      "Garantia de 5 anos do material de ancoragem fornecido pela RF",
+    ],
+    aplicacoes: [
+      {
+        titulo: "Pontos de ancoragem",
+        texto:
+          "Verificação dos pontos instalados na cobertura, que sustentam balancim, cadeirinha e o sistema de proteção individual.",
+      },
+      {
+        titulo: "Linha de vida",
+        texto:
+          "Inspeção do sistema de proteção coletiva e dos seus componentes de fixação e deslocamento.",
+      },
+      {
+        titulo: "Equipamentos de acesso",
+        texto:
+          "Guinchos e motores desmontados, revisados e testados por equipe interna antes de voltarem para o estoque.",
+      },
+      {
+        titulo: "Componentes de SPIQ",
+        texto:
+          "Ensaio em bancada dos componentes do Sistema de Proteção Individual contra Quedas antes da liberação para uso.",
+      },
+    ],
+    processo: [
+      {
+        titulo: "Levantamento",
+        texto:
+          "Identificamos o sistema instalado, os pontos existentes e a documentação que acompanha a instalação.",
+      },
+      {
+        titulo: "Inspeção e ensaio",
+        texto:
+          "Verificamos os componentes e realizamos o ensaio em bancada na nossa oficina de inspeção.",
+      },
+      {
+        titulo: "Manutenção",
+        texto:
+          "Componentes que precisam de reparo passam pelo setor de manutenção antes de voltarem para uso.",
+      },
+      {
+        titulo: "Laudo e ART",
+        texto:
+          "Entregamos laudo técnico com o resultado da inspeção e Anotação de Responsabilidade Técnica registrada no CREA.",
+      },
+    ],
+    specs: [],
+    normas: ["NR-35", "NR-18", "NBR 16325"],
+    faq: [
+      {
+        pergunta: "O que a inspeção verifica?",
+        resposta:
+          "Os componentes do sistema instalado passam por ensaio em bancada dedicada, na nossa oficina de inspeção. O equipamento só é liberado para uso depois de passar por essa etapa.",
+      },
+      {
+        pergunta: "A inspeção vem com laudo e ART?",
+        resposta:
+          "Sim. A inspeção é acompanhada de laudo técnico e de Anotação de Responsabilidade Técnica registrada no CREA, assinada pelo nosso responsável técnico.",
+      },
+      {
+        pergunta: "Quem executa a inspeção?",
+        resposta:
+          "Equipe técnica própria, sob a responsabilidade do nosso engenheiro registrado no CREA. A etapa crítica não é terceirizada.",
+      },
+    ],
+    whatsappMensagem:
+      "Olá! Gostaria de falar sobre inspeção e manutenção de sistemas de proteção contra queda.",
   },
 
   {

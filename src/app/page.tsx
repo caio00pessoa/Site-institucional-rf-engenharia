@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Clientes } from "@/components/blocos/clientes";
 import { CtaFinal } from "@/components/blocos/cta-final";
+import { Faq } from "@/components/blocos/faq";
 import { GradeServicos } from "@/components/blocos/grade-servicos";
 import { Numeros } from "@/components/blocos/numeros";
 import { ResponsavelTecnico } from "@/components/blocos/responsavel-tecnico";
@@ -10,9 +12,12 @@ import {
   Container,
   Eyebrow,
   Secao,
+  Seta,
   TituloSecao,
 } from "@/components/ui/primitivos";
 import { home } from "@/content/home";
+import { faqDestaque } from "@/content/perguntas";
+import { pracas } from "@/content/onde-atuamos";
 import { site } from "@/content/site";
 
 export default function Home() {
@@ -150,9 +155,79 @@ export default function Home() {
 
       <Numeros />
 
+      {/* Praças. Entrada para /onde-atuamos, e o telefone regional já
+          resolve quem só queria ligar para a cidade dele. */}
+      <Secao tom="tela">
+        <Container>
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <Eyebrow>Onde atuamos</Eyebrow>
+              <TituloSecao className="max-w-[18ch]">
+                Obras em todo o Brasil, telefone por praça
+              </TituloSecao>
+            </div>
+            <Link
+              href="/onde-atuamos"
+              className="group inline-flex items-center gap-2 text-sm font-semibold text-navy-900 hover:text-indigo-500"
+            >
+              Ver onde atuamos
+              <Seta className="transition-transform duration-200 group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          <ul className="mt-12 grid gap-px border border-steel-200 bg-steel-200 md:grid-cols-3">
+            {site.telefonesRegionais.map((regional) => {
+              const praca = pracas.find(
+                (item) => item.chaveTelefone === regional.praca,
+              );
+
+              return (
+                <li key={regional.praca} className="bg-white p-7">
+                  <p className="label-tech text-steel-400">{regional.praca}</p>
+                  <a
+                    href={`tel:${regional.digitos}`}
+                    className="mt-3 block font-mono text-lg text-navy-900 hover:text-indigo-500"
+                  >
+                    {regional.numero}
+                  </a>
+                  {praca && (
+                    <Link
+                      href={`/onde-atuamos/${praca.slug}`}
+                      className="group mt-5 inline-flex items-center gap-2 text-sm font-semibold text-indigo-500 hover:text-navy-900"
+                    >
+                      {praca.matriz ? "Matriz do grupo" : "Ver a praça"}
+                      <Seta className="transition-transform duration-200 group-hover:translate-x-1" />
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </Container>
+      </Secao>
+
       <ResponsavelTecnico />
 
       <Clientes limite={12} />
+
+      {/*
+        Recorte do FAQ geral. Sem faqSchema aqui de propósito: o
+        FAQPage é emitido só em /perguntas-frequentes, para as duas
+        páginas não disputarem o mesmo rich result.
+      */}
+      <Faq perguntas={faqDestaque} titulo="As dúvidas mais comuns" />
+
+      <Secao tom="claro" className="py-14 md:py-16">
+        <Container>
+          <Link
+            href="/perguntas-frequentes"
+            className="group inline-flex items-center gap-2 font-semibold text-navy-900 hover:text-indigo-500"
+          >
+            Ver todas as perguntas frequentes
+            <Seta className="transition-transform duration-200 group-hover:translate-x-1" />
+          </Link>
+        </Container>
+      </Secao>
 
       <CtaFinal
         titulo={home.ctaFinal.titulo}

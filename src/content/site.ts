@@ -173,11 +173,22 @@ export const site = {
  */
 export const linkGoogleMaps = `https://www.google.com/maps/search/?api=1&query=${site.geo.latitude},${site.geo.longitude}`;
 
-/** Links do menu principal. Usado no header e no rodapé. */
+/**
+ * Links do menu principal. Usado no header, no rodapé e no menu mobile.
+ * Quatro itens é o teto: ao lado do logo, do telefone e do botão de
+ * WhatsApp, o quinto começa a espremer o header no breakpoint md.
+ */
 export const navPrincipal = [
   { label: "A Empresa", href: "/sobre" },
   { label: "Serviços", href: "/servicos" },
+  { label: "Onde atuamos", href: "/onde-atuamos" },
   { label: "Contato", href: "/contato" },
+] as const;
+
+/** Páginas de apoio. Só no rodapé, para não inchar o menu. */
+export const navSecundaria = [
+  { label: "Clientes atendidos", href: "/clientes" },
+  { label: "Perguntas frequentes", href: "/perguntas-frequentes" },
 ] as const;
 
 export const navLegal = [

@@ -47,7 +47,11 @@ export default async function PaginaServico({
   const servico = servicoPorSlug(slug);
   if (!servico) notFound();
 
-  const relacionados = servicos.filter((item) => item.slug !== servico.slug);
+  /* A grade de relacionados tem 3 colunas: com 6 serviços cadastrados,
+     sem o corte sobrariam 5 cards e uma linha quebrada. */
+  const relacionados = servicos
+    .filter((item) => item.slug !== servico.slug)
+    .slice(0, 3);
 
   return (
     <>

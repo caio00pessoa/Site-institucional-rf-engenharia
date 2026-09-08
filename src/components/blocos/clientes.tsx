@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Container,
   Eyebrow,
   Secao,
+  Seta,
   TituloSecao,
 } from "@/components/ui/primitivos";
 import { clientes } from "@/content/clientes";
@@ -14,7 +16,14 @@ import { linkGoogleMaps, site } from "@/content/site";
  * redação que sugira endosso ou parceria, principalmente com os órgãos
  * públicos da lista.
  */
-export function Clientes({ limite }: { limite?: number }) {
+export function Clientes({
+  limite,
+  verTodos = true,
+}: {
+  limite?: number;
+  /** Desliga o link quando o bloco já está dentro de /clientes. */
+  verTodos?: boolean;
+}) {
   const lista = limite ? clientes.slice(0, limite) : clientes;
 
   return (
@@ -27,17 +36,29 @@ export function Clientes({ limite }: { limite?: number }) {
               Clientes que já compram conosco
             </TituloSecao>
           </div>
-          <a
-            href={linkGoogleMaps}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-steel-600 underline decoration-steel-200 underline-offset-4 transition-colors hover:text-navy-900 hover:decoration-navy-900"
-          >
-            <span className="font-mono font-medium text-navy-900">
-              {site.avaliacoes.nota}
-            </span>
-            no Google, com {site.avaliacoes.quantidade} avaliações
-          </a>
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+            <a
+              href={linkGoogleMaps}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-steel-600 underline decoration-steel-200 underline-offset-4 transition-colors hover:text-navy-900 hover:decoration-navy-900"
+            >
+              <span className="font-mono font-medium text-navy-900">
+                {site.avaliacoes.nota}
+              </span>
+              no Google, com {site.avaliacoes.quantidade} avaliações
+            </a>
+
+            {verTodos && (
+              <Link
+                href="/clientes"
+                className="group inline-flex shrink-0 items-center gap-2 text-sm font-semibold text-navy-900 hover:text-indigo-500"
+              >
+                Ver todos os clientes
+                <Seta className="transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+            )}
+          </div>
         </div>
 
         <ul className="mt-14 grid grid-cols-2 gap-px border border-steel-200 bg-steel-200 sm:grid-cols-3 lg:grid-cols-6">

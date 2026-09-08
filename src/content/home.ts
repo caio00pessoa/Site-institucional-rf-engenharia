@@ -42,7 +42,7 @@ export const home = {
         imagem: {
           src: "/imagens/estrutura/galpao-rf-locacao.webp",
           alt: "Galpão da RF com equipamentos e componentes organizados",
-          legenda: "Galpão próprio",
+          legenda: "Galpão",
         },
       },
       {

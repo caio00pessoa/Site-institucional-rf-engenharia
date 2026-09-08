@@ -16,6 +16,9 @@ import { servicos } from "@/content/servicos";
  * As fotos herdadas do site antigo têm no máximo 500px de largura, por
  * isso a imagem vive dentro de um card contido em 3/2, e nunca em área
  * full-bleed onde o upscale apareceria.
+ *
+ * Três colunas, e não quatro: com seis serviços, quatro colunas deixam
+ * uma segunda linha órfã de dois cards.
  */
 export function GradeServicos({
   tom = "tela",
@@ -41,7 +44,7 @@ export function GradeServicos({
           </Link>
         </div>
 
-        <ul className="mt-14 grid gap-px border border-steel-200 bg-steel-200 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-14 grid gap-px border border-steel-200 bg-steel-200 sm:grid-cols-2 lg:grid-cols-3">
           {servicos.map((servico) => (
             <li key={servico.slug} className="bg-white">
               <Link
@@ -53,7 +56,7 @@ export function GradeServicos({
                     src={servico.imagem.src}
                     alt={servico.imagem.alt}
                     fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-[1.04]"
                   />
                 </div>
