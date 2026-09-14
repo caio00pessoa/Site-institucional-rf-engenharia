@@ -40,7 +40,7 @@ export function Faq({
           </div>
 
           <div className="border-t border-steel-200">
-            {perguntas.map((item) => (
+            {perguntas.filter(item => !item.resposta.includes("[CONFIRMAR]")).map((item) => (
               <details
                 key={item.pergunta}
                 className="group border-b border-steel-200"

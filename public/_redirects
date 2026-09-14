@@ -1,0 +1,8 @@
+/instalacao-de-ancoragem /servicos/ancoragem-predial/ 301
+/instalacao-de-ancoragem/* /servicos/ancoragem-predial/ 301
+/linha-de-vida /servicos/linha-de-vida/ 301
+/linha-de-vida/* /servicos/linha-de-vida/ 301
+/construcao-metalica /servicos/construcao-metalica/ 301
+/construcao-metalica/* /servicos/construcao-metalica/ 301
+/a-empresa /sobre/ 301
+/sobre-nos /sobre/ 301

@@ -1,3 +1,4 @@
+import { Orcamento } from "@/components/blocos/orcamento";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -53,6 +54,8 @@ export default function PaginaContato() {
           </div>
         </Container>
       </Secao>
+
+      <Orcamento />
 
       {/* Canais */}
       <Secao tom="claro">

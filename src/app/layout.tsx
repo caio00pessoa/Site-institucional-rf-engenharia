@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true },
 };
 
-const GTM_ID = "GTM-5MSMHXMR";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
@@ -59,23 +59,24 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <head>
-        <Script id="gtm" strategy="afterInteractive">
+        {GTM_ID && <Script id="gtm" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
+        </Script>}
+        <Script id="rf-contact-events" strategy="afterInteractive">{`document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';var channel=h.startsWith('tel:')?'phone':h.startsWith('mailto:')?'email':h.includes('wa.me/')?'whatsapp':null;if(channel){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'rf_contact_click',channel:channel,page_path:location.pathname});}});`}</Script>
       </head>
       <body className="flex min-h-full flex-col">
-        <noscript>
+        {GTM_ID && <noscript>
           <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
           />
-        </noscript>
+        </noscript>}
         <a
           href="#conteudo"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-navy-900 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"

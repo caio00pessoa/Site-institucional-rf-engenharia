@@ -20,15 +20,15 @@ export type Documento = {
 export const politicaPrivacidade: Documento = {
   titulo: "Política de Privacidade",
   // [CONFIRMAR] atualizar na data real da publicação, após revisão jurídica.
-  atualizadoEm: "agosto de 2026",
+  atualizadoEm: "setembro de 2026",
   intro: `Esta política explica como o ${site.nomeCompleto} trata dados pessoais em relação a este site, em conformidade com a Lei Geral de Proteção de Dados (Lei 13.709/2018).`,
   secoes: [
     {
       titulo: "Quais dados coletamos",
       paragrafos: [
-        "Este site não possui formulário de cadastro nem área de login, e não solicita dados pessoais para navegação.",
+        "Você pode navegar sem preencher seus dados. O formulário de orçamento prepara uma mensagem com nome, empresa ou condomínio, cidade, serviço e informações da obra. A mensagem permanece na página até você escolher abrir o WhatsApp ou o aplicativo de e-mail e concluir o envio. O formulário não salva esses dados em um banco de dados do site.",
         "Quando você entra em contato por WhatsApp, telefone ou e-mail, recebemos os dados que você mesmo nos envia, como nome, telefone, e-mail e as informações sobre a obra ou edificação. Usamos esses dados apenas para responder à solicitação e elaborar o orçamento.",
-        "Coletamos ainda dados de navegação agregados por meio de ferramentas de análise, como páginas visitadas, origem do acesso e tipo de dispositivo. Esses dados não identificam você individualmente.",
+        "A página registra eventos de clique nos canais de contato e de preparação de orçamento, sem incluir os campos pessoais preenchidos. O envio desses eventos a ferramentas de análise depende de configuração específica.",
       ],
     },
     {
@@ -72,7 +72,7 @@ export const politicaPrivacidade: Documento = {
 export const termosDeUso: Documento = {
   titulo: "Termos de Uso",
   // [CONFIRMAR] atualizar na data real da publicação, após revisão jurídica.
-  atualizadoEm: "agosto de 2026",
+  atualizadoEm: "setembro de 2026",
   intro: `Ao navegar neste site, você concorda com os termos abaixo. Este site é mantido pelo ${site.nomeCompleto}.`,
   secoes: [
     {

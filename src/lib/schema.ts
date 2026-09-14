@@ -124,7 +124,7 @@ export function faqSchema(perguntas: { pergunta: string; resposta: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: perguntas.map((item) => ({
+    mainEntity: perguntas.filter(item => !item.resposta.includes("[CONFIRMAR]")).map((item) => ({
       "@type": "Question",
       name: item.pergunta,
       acceptedAnswer: {

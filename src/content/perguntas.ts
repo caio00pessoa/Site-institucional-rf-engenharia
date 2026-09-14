@@ -47,7 +47,7 @@ export const faqGeral: Pergunta[] = [
   {
     pergunta: "Qual a diferença entre ancoragem, linha de vida e SPIQ?",
     resposta:
-      "O ponto de ancoragem é o ponto seguro fixado na estrutura, usado para prender balancim, cadeirinha ou o equipamento do trabalhador. A linha de vida é um sistema de proteção coletiva que permite ao trabalhador se deslocar em altura mantendo-se sempre conectado. O SPIQ, Sistema de Proteção Individual contra Quedas, é o conjunto que o trabalhador veste e conecta ao ponto ou à linha.",
+      "O ponto de ancoragem é o ponto seguro fixado na estrutura, usado para prender balancim, cadeirinha ou o equipamento do trabalhador. A linha de vida é um sistema de ancoragem que permite ao trabalhador se deslocar em altura mantendo-se sempre conectado. O SPIQ, Sistema de Proteção Individual contra Quedas, é o conjunto que o trabalhador veste e conecta ao ponto ou à linha.",
   },
   {
     pergunta: "A RF atende condomínios, além de construtoras?",

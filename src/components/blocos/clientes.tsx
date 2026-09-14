@@ -33,21 +33,11 @@ export function Clientes({
           <div>
             <Eyebrow>Prova de campo</Eyebrow>
             <TituloSecao className="max-w-[18ch]">
-              Clientes que já compram conosco
+              Clientes atendidos
             </TituloSecao>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
-            <a
-              href={linkGoogleMaps}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-steel-600 underline decoration-steel-200 underline-offset-4 transition-colors hover:text-navy-900 hover:decoration-navy-900"
-            >
-              <span className="font-mono font-medium text-navy-900">
-                {site.avaliacoes.nota}
-              </span>
-              no Google, com {site.avaliacoes.quantidade} avaliações
-            </a>
+
 
             {verTodos && (
               <Link

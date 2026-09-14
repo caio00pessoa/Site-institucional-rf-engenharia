@@ -148,17 +148,7 @@ export function SiteFooter() {
             <p>
               © {new Date().getFullYear()} {site.nomeCompleto}
             </p>
-            <p>
-              Criado por{" "}
-              <a
-                href={site.criadoPor.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-white/60 underline decoration-white/20 underline-offset-4 transition-colors hover:text-amber-500 hover:decoration-amber-500"
-              >
-                {site.criadoPor.nome}
-              </a>
-            </p>
+
           </div>
         </div>
       </div>

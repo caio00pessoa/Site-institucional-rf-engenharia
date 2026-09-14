@@ -50,7 +50,7 @@ export default function PaginaClientes() {
             <div>
               <Eyebrow escuro>Prova de campo</Eyebrow>
               <h1 className="mt-6 max-w-[16ch] text-balance text-[2.25rem] leading-[1.06] font-bold tracking-[-0.03em] md:text-[3.5rem]">
-                Clientes que já compram conosco
+                Clientes atendidos pela RF
               </h1>
               <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-white/65">
                 {site.numerosContexto} Abaixo estão {total} contratantes,
@@ -60,24 +60,6 @@ export default function PaginaClientes() {
 
             <CtaPar mensagem="Olá! Gostaria de solicitar um orçamento." />
           </div>
-        </Container>
-      </Secao>
-
-      {/* Números, para dar escala à grade que vem em seguida */}
-      <Secao tom="claro" className="py-14 md:py-16">
-        <Container>
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
-            {site.numeros.map((numero) => (
-              <div key={numero.rotulo}>
-                <dt className="font-mono text-3xl font-semibold text-navy-900 tabular-nums md:text-4xl">
-                  {numero.valor}
-                </dt>
-                <dd className="mt-2 max-w-[20ch] text-sm leading-snug text-steel-600">
-                  {numero.rotulo}
-                </dd>
-              </div>
-            ))}
-          </dl>
         </Container>
       </Secao>
 
@@ -127,18 +109,7 @@ export default function PaginaClientes() {
               altura. A presença de uma marca aqui indica atendimento prestado,
               e não parceria ou endosso.
             </p>
-            <a
-              href={linkGoogleMaps}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex shrink-0 items-center gap-2 text-sm text-steel-600 underline decoration-steel-200 underline-offset-4 transition-colors hover:text-navy-900 hover:decoration-navy-900"
-            >
-              <span className="font-mono font-medium text-navy-900">
-                {site.avaliacoes.nota}
-              </span>
-              no Google, com {site.avaliacoes.quantidade} avaliações
-              <Seta />
-            </a>
+
           </div>
         </Container>
       </Secao>

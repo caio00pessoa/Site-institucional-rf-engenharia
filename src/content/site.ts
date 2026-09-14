@@ -38,7 +38,7 @@ export const site = {
     "Somos uma empresa atuante no mercado de projetos, consultoria, fabricação e instalação de sistemas de Segurança do Trabalho, especialmente para prevenção contra queda em altura em edifícios e construção civil, bem como locação de máquinas e equipamentos.",
 
   /** [CONFIRMAR] domínio final antes de publicar. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rf-engenharia.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://rf-engenharia.rf-engenhari-1587.chatgpt.site",
 
   telefone: {
     exibicao: "0800 3264 378",

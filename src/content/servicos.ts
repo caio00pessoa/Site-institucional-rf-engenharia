@@ -59,7 +59,7 @@ export type Servico = {
   whatsappMensagem: string;
 };
 
-export const servicos: Servico[] = [
+const servicosOriginais: Servico[] = [
   {
     slug: "ancoragem-predial",
     nome: "Ancoragem Predial",
@@ -100,17 +100,17 @@ export const servicos: Servico[] = [
       {
         titulo: "Cadeirinha ou rapel",
         texto:
-          "Garante segurança para os trabalhadores que farão serviços suspensos por cordas ou cabo de aço.",
+          "Oferece pontos de fixação para os sistemas dos trabalhadores que farão serviços suspensos por cordas ou cabo de aço.",
       },
       {
         titulo: "Linha de vida",
         texto:
-          "Permite a instalação de sistema de proteção coletiva, atendendo às exigências da NR-35.",
+          "Permite a instalação de sistema de ancoragem, atendendo às exigências da NR-35.",
       },
       {
         titulo: "Resgate pelo Corpo de Bombeiros",
         texto:
-          "Garante que, em caso de emergência, o Corpo de Bombeiros possa fazer um resgate rápido e eficiente, podendo salvar vidas. Atende às normas de Resgate e Salvamento.",
+          "Pode integrar soluções de acesso e resgate, conforme avaliação, projeto e requisitos aplicáveis à edificação.",
       },
     ],
     processo: [
@@ -132,12 +132,12 @@ export const servicos: Servico[] = [
       {
         titulo: "Impermeabilização",
         texto:
-          "Realizamos o tratamento da impermeabilização, quando necessário, para garantir que não haverá infiltração.",
+          "Realizamos o tratamento da impermeabilização, quando necessário, conforme as condições da cobertura e o escopo contratado.",
       },
       {
         titulo: "Teste de arrancamento",
         texto:
-          "Realizamos teste de arrancamento estático em 100% dos pontos instalados, de modo a garantir a segurança dos trabalhadores.",
+          "Realizamos teste de arrancamento estático em 100% dos pontos instalados, de modo a verificar o desempenho da instalação conforme o procedimento de ensaio.",
       },
       {
         titulo: "Laudo técnico e ART",
@@ -210,7 +210,7 @@ export const servicos: Servico[] = [
         pergunta:
           "É necessário realizar impermeabilização na instalação de sistema de ancoragem?",
         resposta:
-          "Quando a instalação perfura uma laje impermeabilizada, sim. Realizamos o tratamento da impermeabilização para garantir que não haverá infiltração, e isso já faz parte do nosso escopo de instalação.",
+          "Quando a instalação perfura uma laje impermeabilizada, sim. Realizamos o tratamento da impermeabilização conforme as condições da cobertura e o escopo contratado, e isso já faz parte do nosso escopo de instalação.",
       },
       {
         pergunta: "Como escolher o produto ideal para um edifício?",
@@ -305,7 +305,7 @@ export const servicos: Servico[] = [
       {
         pergunta: "Para que serve o sistema de linha de vida?",
         resposta:
-          "É um sistema de proteção coletiva contra quedas que permite ao trabalhador se deslocar em altura mantendo-se sempre conectado. Atende às exigências da NR-35 para trabalho em altura.",
+          "É um sistema de ancoragem contra quedas que permite ao trabalhador se deslocar em altura mantendo-se sempre conectado. Atende às exigências da NR-35 para trabalho em altura.",
       },
       {
         pergunta: "Vocês fabricam ou só instalam?",
@@ -482,7 +482,7 @@ export const servicos: Servico[] = [
       {
         titulo: "Linha de vida",
         texto:
-          "Inspeção do sistema de proteção coletiva e dos seus componentes de fixação e deslocamento.",
+          "Inspeção do sistema de ancoragem e dos seus componentes de fixação e deslocamento.",
       },
       {
         titulo: "Equipamentos de acesso",
@@ -720,6 +720,12 @@ export const servicos: Servico[] = [
       "Olá! Gostaria de um orçamento de construção metálica.",
   },
 ];
+
+// Pendências permanecem na fonte para revisão e não entram na versão apresentada.
+export const servicos: Servico[] = servicosOriginais.map(s => ({...s,
+  faq: s.faq.filter(q => !q.resposta.includes("[CONFIRMAR]")),
+  beneficios: s.beneficios.filter(b => !b.includes("3.600")),
+}));
 
 export const servicoPorSlug = (slug: string): Servico | undefined =>
   servicos.find((servico) => servico.slug === slug);
