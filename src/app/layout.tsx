@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   formatDetection: { telephone: true },
 };
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-5MSMHXMR";
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
